@@ -1,0 +1,489 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "SMS OTP",
+    "description": "Create Sms Otp Apis",
+    "version": "v2"
+  },
+  "paths": {
+    "/api/v2/bridge/getOtpType": {
+      "get": {
+        "tags": [
+          "SMS OTP"
+        ],
+        "summary": "Get current user’s authentication method.",
+        "description": "Get current user’s authentication method.",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GetOTPTypeRes"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input param",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/bridge/registerSMSOTP": {
+      "post": {
+        "tags": [
+          "SMS OTP"
+        ],
+        "summary": "Get OTP number to resgiter SMS OTP",
+        "description": "Get OTP number to resgiter SMS OTP",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RegisterSMSOTPRes"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input param",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/bridge/unregisterSMSOTP": {
+      "post": {
+        "tags": [
+          "SMS OTP"
+        ],
+        "summary": "Get OTP number to unresgiter SMS OTP",
+        "description": "Get OTP number to unresgiter SMS OTP",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/UnregisterSMSOTPRes"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input param",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/bridge/verifySMSOTPRegister": {
+      "post": {
+        "tags": [
+          "SMS OTP"
+        ],
+        "summary": "Verify OTP for resgiter SMS OTP",
+        "description": "Verify OTP for resgiter SMS OTP",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifySMSOTPRegisterReq"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/VerifySMSOTPRegisterRes"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input param",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/bridge/verifySMSOTPUnregister": {
+      "post": {
+        "tags": [
+          "SMS OTP"
+        ],
+        "summary": "Verify OTP for unresgiter SMS OTP",
+        "description": "Verify OTP for unresgiter SMS OTP",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifySMSOTPUnregisterReq"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/VerifySMSOTPUnregisterRes"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input param",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/bridge/generateSMSOTP": {
+      "post": {
+        "tags": [
+          "SMS OTP"
+        ],
+        "summary": "Generate SMS OTP number",
+        "description": "Generate SMS OTP number",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GenerateSMSOTPRes"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input param",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v2/bridge/verifySMSOTP": {
+      "post": {
+        "tags": [
+          "SMS OTP"
+        ],
+        "summary": "Verify SMS OTP number",
+        "description": "Verify SMS OTP number",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifySMSOTPReq"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/VerifySMSOTPRes"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid input param",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GetOTPTypeRes": {
+        "type": "object",
+        "properties": {
+          "otpType": {
+            "type": "string",
+            "description": "authentication type of user"
+          }
+        }
+      },
+      "RegisterSMSOTPRes": {
+        "type": "object",
+        "properties": {
+          "otp": {
+            "type": "string",
+            "description": "OTP Number"
+          },
+          "key": {
+            "type": "string",
+            "description": "Authentication Key - base64 encryption"
+          }
+        }
+      },
+      "UnregisterSMSOTPRes": {
+        "type": "object",
+        "properties": {
+          "otp": {
+            "type": "string",
+            "description": "OTP Number"
+          },
+          "key": {
+            "type": "string",
+            "description": "Authentication Key - base64 encryption"
+          }
+        }
+      },
+      "VerifySMSOTPRegisterRes": {
+        "type": "object"
+      },
+      "VerifySMSOTPUnregisterRes": {
+        "type": "object"
+      },
+      "GenerateSMSOTPRes": {
+        "type": "object",
+        "properties": {
+          "otp": {
+            "type": "string",
+            "description": "OTP Number"
+          },
+          "key": {
+            "type": "string",
+            "description": "Authentication Key - base64 encryption"
+          }
+        }
+      },
+      "VerifySMSOTPRes": {
+        "type": "object"
+      },
+      "FieldError": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "error code"
+          },
+          "message": {
+            "type": "string",
+            "description": "error message"
+          },
+          "param": {
+            "type": "string",
+            "description": "parameter name that is not correct"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "error code"
+          },
+          "message": {
+            "type": "string",
+            "description": "error message"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldError"
+            },
+            "description": "error message"
+          }
+        }
+      },
+      "VerifySMSOTPRegisterReq": {
+        "type": "object",
+        "properties": {
+          "otp": {
+            "type": "string",
+            "description": "otp number"
+          },
+          "key": {
+            "type": "string",
+            "description": "Authentication Key - base64 encryption"
+          }
+        }
+      },
+      "VerifySMSOTPUnregisterReq": {
+        "type": "object",
+        "properties": {
+          "otp": {
+            "type": "string",
+            "description": "otp number"
+          },
+          "key": {
+            "type": "string",
+            "description": "Authentication Key - base64 encryption"
+          }
+        }
+      },
+      "VerifySMSOTPReq": {
+        "type": "object",
+        "properties": {
+          "otp": {
+            "type": "string",
+            "description": "otp number"
+          },
+          "key": {
+            "type": "string",
+            "description": "Authentication Key - base64 encryption"
+          }
+        }
+      }
+    }
+  }
+}
